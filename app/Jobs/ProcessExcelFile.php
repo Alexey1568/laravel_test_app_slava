@@ -49,7 +49,7 @@ class ProcessExcelFile implements ShouldQueue
             Excel::import($import, $filePath);
 
             \Log::info('Завершение обработки файла: ' . $this->fileName);
-            event(new AllJobsCompleted());
+        
 
         } catch (\Exception $e) {
             \Log::error('Ошибка при обработке файла: ' . $e->getMessage());

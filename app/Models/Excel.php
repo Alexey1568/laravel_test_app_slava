@@ -25,4 +25,8 @@ class Excel extends Model
         'name',
         'date',
     ];
+
+    protected $casts = [
+        'date' => 'date'
+    ];
 } 

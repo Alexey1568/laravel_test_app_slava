@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Redis;
 use App\Jobs\ProcessExcelFile;
-use App\Events\AllJobsCompleted;
+
 
 class ExcelUploadController extends Controller
 {
@@ -19,8 +19,6 @@ class ExcelUploadController extends Controller
     public function upload(ExcelUploadRequest $request)
     {
         try {
-            event(new AllJobsCompleted());
-            dd(1);
             $file = $request->file('file');
             $fileName = time() . '_' . $file->getClientOriginalName();
             

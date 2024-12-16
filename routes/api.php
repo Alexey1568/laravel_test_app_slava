@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ExcelUploadController;
+use App\Http\Controllers\ExcelViewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,5 +20,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/upload-excel', [ExcelUploadController::class, 'upload'])
-    ->middleware('auth.basic'); 
+Route::post('/upload-excel', [ExcelUploadController::class, 'upload'])->middleware('auth.basic');
+Route::get('/excel/data', [ExcelViewController::class, 'index']);
+Route::get('/excel/data/{date}', [ExcelViewController::class, 'getByDate']);
+    
+    
